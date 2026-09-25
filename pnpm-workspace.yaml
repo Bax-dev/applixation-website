@@ -1,0 +1,5 @@
+allowBuilds:
+  esbuild: true
+
+# @splinetool/runtime ships an ~19 MB tarball that times out on the default fetch timeout.
+fetchTimeout: 900000

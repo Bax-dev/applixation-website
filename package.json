@@ -1,0 +1,35 @@
+{
+  "name": "applixation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "dev": "node api.js && vite",
+    "build": "node api.js && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir .ssr && node scripts/prerender.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.0",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^2.0.57",
+    "@vercel/analytics": "1.6.1",
+    "lucide-react": "^1.16.0",
+    "motion": "^13.4.3",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-router-dom": "^7.9.1",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "5.7.3",
+    "vite": "^7.1.0"
+  }
+}

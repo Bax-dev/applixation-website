@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-navy: var(--navy);
+  --color-orange: var(--orange);
+  --color-sand: var(--sand);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.98 0.008 75);
+  --foreground: oklch(0.18 0.025 202.3);
+  --card: oklch(1 0 0);
+  --muted-foreground: oklch(0.49 0.025 202.3);
+  --border: oklch(0.88 0.018 75);
+  --navy: oklch(0.3621 0.0545 202.3); /* #10464a */
+  --orange: oklch(0.77 0.17 57);
+  --sand: oklch(0.96 0.02 78);
+  --radius: .7rem;
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
+body { @apply bg-background text-foreground antialiased; font-family: Arial, Helvetica, sans-serif; }
+::selection { background: var(--orange); color: var(--navy); }
+.grid-fade { background-image: linear-gradient(to right, color-mix(in oklch, white 8%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in oklch, white 8%, transparent) 1px, transparent 1px); background-size: 64px 64px; }
+
+@layer components {
+  /* Small capitalised kicker used above section headings. Colour is overridable with a utility (e.g. `eyebrow text-orange`). */
+  .eyebrow { font-size: .625rem; font-weight: 600; line-height: 1; text-transform: uppercase; letter-spacing: .22em; color: var(--muted-foreground); }
+}
+
+/* Credential ticker on the home page. The list is rendered twice, so a -50% shift is one seamless period. */
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  html { scroll-behavior: auto; }
+}
